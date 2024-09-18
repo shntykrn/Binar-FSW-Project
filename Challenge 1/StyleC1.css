@@ -11,7 +11,7 @@ body {
     line-height: 20px;
 }
 .section {
-    margin-top: 50px;   
+    margin-top: 100px;   
     margin-bottom: 50px;
     padding: 20px;      
   }  
@@ -26,6 +26,18 @@ body {
 .hero-section p {
     font-size: 1.1rem;
     margin-bottom: 20px;
+}
+.custom-list {
+    list-style: none; 
+    padding-left: 0;  
+}
+.custom-list img {
+    width: 20px;      
+    margin-right: 10px; 
+    vertical-align: middle; 
+}  
+.custom-list li {
+    margin-bottom: 10px; 
 }
 .why-us-section {
     padding: 50px 0;
