@@ -10,6 +10,11 @@ body {
     font-size: 14px;
     line-height: 20px;
 }
+.section {
+    margin-top: 50px;   
+    margin-bottom: 50px;
+    padding: 20px;      
+  }  
 .hero-section {
     background-color: #e8f0ff;
     padding: 50px 0;
@@ -47,7 +52,17 @@ body {
     text-align: center;
 }
 .faq-section {
-    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    position: absolute;
+    width: 668px;
+    height: 344px;
+    left: 636px;
+    top: 2504px;
 }
 footer {
     padding: 30px 0;
