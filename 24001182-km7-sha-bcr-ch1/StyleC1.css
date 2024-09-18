@@ -1,5 +1,6 @@
 body {
-    position: absolute;
+    display: flex;
+    flex: left;
     width: 568px;
     height: 108px;
     left: 136px;
@@ -45,15 +46,35 @@ body {
 }
 .why-us-section h2 {
     margin-bottom: 30px;
-    text-align: center;
+    text-align: left;
 }
 .why-us-section .card {
     border: none;
+    text-align: left;
+}
+.slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Sesuaikan jumlah kolom */
+    grid-auto-flow: column;
+    overflow-x: hidden;
+}
+.slide {
+    width: 100%;
+    height: 200px;
     text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+.slide:not(:first-child) {
+    transform: translateX(100%);
 }
 .testimonials {
     background-color: #f5f5f5;
     padding: 50px 0;
+    position: absolute;
+    height: 36px;
+    left: 33.86%;
+    right: 35.24%;
+    top: 1540px;
 }
 .testimonial-item {
     margin-bottom: 30px;
@@ -62,7 +83,7 @@ body {
     background-color: #0046d5;
     color: white;
     padding: 50px 0;
-    text-align: center;
+    text-align: left;
 }
 .faq-section {
     display: flex;
@@ -70,8 +91,6 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 16px;
-
-    position: absolute;
     width: 668px;
     height: 344px;
     left: 636px;
