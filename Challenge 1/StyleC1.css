@@ -1,5 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
+    position: absolute;
+    width: 568px;
+    height: 108px;
+    left: 136px;
+    top: 177px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
 }
 .hero-section {
     background-color: #e8f0ff;
