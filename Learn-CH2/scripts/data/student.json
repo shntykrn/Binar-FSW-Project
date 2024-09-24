@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Shanty Kurnia Dewi",
+      "nickName": "Shanty",
+      "class": "FSW-1",
+      "address": {
+        "province": "East Java",
+        "city": "Surabaya"
+      },
+      "education": {
+        "bachelor": "Universitas Pembangunan Nasional Veteran Jawa Timur"
+      }
+    },
+    {
+      "name": "Khairunnisa",
+      "nickName": "Ica",
+      "class": "FSW-2",
+      "address": {
+        "province": "East Java",
+        "city": "Jember"
+      },
+      "education": {
+        "bachelor": "Universitas Negeri Jember"
+      }
+    },
+    {
+      "name": "Deisya Dzakkiyyah Rahmawati",
+      "nickName": "Deisya",
+      "class": "FSW-3",
+      "address": {
+        "province": "Central Java",
+        "city": "Solo"
+      },
+      "education": {
+        "bachelor": "Universitas Sebelas Maret"
+      }
+    }
+  ]
