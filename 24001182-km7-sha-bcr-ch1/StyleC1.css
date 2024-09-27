@@ -1,0 +1,233 @@
+/* Global Styles */
+body {
+    font-family: Helvetica;
+    text-align: start;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.navbar .nav-link {
+    color: #000;
+    margin-right: 20px;
+}
+
+.navbar .btn-success {
+    background-color: #28a745;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #ffffff;
+    padding: 100px 0;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000000;
+    text-align: start;
+}
+
+.hero-section p {
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: start;
+}
+
+.hero-section .btn-success {
+    float:left;
+    padding: 10px 30px;
+    background-color: #5cb85c;
+}
+
+/* Best Car Rental Section */
+.bullet-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure space between image and text */
+    padding: 20px;
+    background-color: white;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    margin: 20px 150px;
+}
+.image img {
+    display: flex;
+    margin-left: 100px;
+    border-radius: 50%;
+    max-width: 150px; /* Adjust the size of the image */
+    float: left;
+}
+.text-container {
+    display: flexbox;
+    flex: right;
+    align-items: end;
+    background-color: white; /* Adjust background color */
+    white-space: wrap;
+}
+.text-container h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    float: right;
+}
+.text p {
+    font-size: 10px;
+}
+.text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.text ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.custom-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.custom-list ul li {
+    font-size: 14px;
+    padding: 10px 0;
+    color: #0d28a6;
+}
+
+.custom-list ul li img {
+    margin-right: 10px;
+}
+
+/* Why Us Section */
+.why-us-section {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.why-us-section .card {
+    border:#6c757d;
+    border-width: 10px;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.why-us-section h2{
+    font-weight: bold;
+}
+.why-us-section .card-body img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.why-us-section .card-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.why-us-section .card-text {
+    font-size: 16px;
+    color: #6c757d;
+}
+/* Testimonials Section */
+.testi-text h2{
+    font-weight: bold;
+    font-size: 24px;
+}
+.testi-text p{
+    text-align: center;
+    font-size: 14px;
+}
+.testimonials .testimonial-item {
+    background-color: #F1F3FF;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.testimonials .testimonial-item img {
+    margin-right: 10px;
+}
+.text-testi p {
+    font-size: 14px;
+}
+.testimonials-item p {
+    font-size: 10px;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #0d28a6;
+    color: white;
+    padding: 80px 0;
+    margin: 90px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 14px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.cta-section .btn-success {
+    background-color: #5cb85c;
+    padding: 10px 30px;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 10px 0;
+}
+
+.faq-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    margin: 30px 50px 10px 50px;
+    justify-content: center;
+}
+.footer-container {
+    display: flex;
+}
+.address {
+    text-align: start;
+    flex: 1,5;
+    font-weight: 300px;
+    font-size: 14px;
+    padding-right: 20px;
+}
+.href {
+    text-align: start;
+    flex: 1;
+    font-weight: 500px;
+    font-size: 14px;
+}
+.social-links {
+    flex: 2;
+}
+.copyright {
+    text-align: start;
+    flex: 1;
+}
+
