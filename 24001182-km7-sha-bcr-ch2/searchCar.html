@@ -8,7 +8,7 @@
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"/>
-
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles/searchCar.css" />
 
   </head>
@@ -19,7 +19,7 @@
         <div class="row">
           <nav class="navbar navbar-expand-lg navbar-light ps-3 pe-3">
             <a href="#home" class="navbar-brand">
-              <img src="images/icon/logo.png" alt="" />
+              <img src="AssetsC1/logo.png" alt="" />
             </a>
             <a
               class="navbar-toggler navbar-toggler-right"
@@ -104,7 +104,7 @@
           </div>
           <!-- gambar -->
           <div class="col-lg-6 col-md-12 pe-0">
-            <img src="images/img_car.png" alt="" class="car-img" />
+            <img src="AssetsC1/img_car.png" alt="" class="car-img" />
           </div>
         </div>
       </div>
@@ -125,27 +125,28 @@
                 </select>
               </div>
               <div class="col-lg-3 d-flex flex-column search-item p-3">
-                <label for="tanggal" class="mb-2">Tanggal</label>
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control datepicker"
-                    placeholder="Pilih Tanggal"
-                    id="tanggal"
-                    name="tanggal"
-                  />
+                <label for="date">Tanggal</label>
+                <div class="input-container">
+                    <input type="date" id="date" onfocus="(this.type='date')">
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
-              </div>
+              </div>            
               <div class="col-lg-2 d-flex flex-column search-item p-3">
                 <label for="waktu" class="mb-2">Waktu Jemput/Ambil</label>
                 <div class="input-group">
                   <select name="waktu" id="waktu" class="form-select">
                     <option value="" selected disabled>Pilih Waktu</option>
+                    <option value="07.00">07.00 WIB</option>
                     <option value="08.00">08.00 WIB</option>
                     <option value="09.00">09.00 WIB</option>
                     <option value="10.00">10.00 WIB</option>
                     <option value="11.00">11.00 WIB</option>
                     <option value="12.00">12.00 WIB</option>
+                    <option value="13.00">13.00 WIB</option>
+                    <option value="14.00">14.00 WIB</option>
+                    <option value="15.00">15.00 WIB</option>
+                    <option value="16.00">16.00 WIB</option>
+                    <option value="17.00">17.00 WIB</option>
                   </select>
                 </div>
               </div>
@@ -162,7 +163,7 @@
                     id="jumlahPenumpang"
                   />
                   <span class="input-group-text">
-                    <img src="images/icon/fi_users.png" alt="" />
+                    <img src="AssetsC2/iconUsers.png" alt="" />
                   </span>
                 </div>
               </div>
@@ -200,15 +201,15 @@
         </div>
         <div class="col-lg-3 col-md-8 footer-sosmed">
           <p>Connect with us</p>
-          <img src="images/icon/icon_facebook.png" alt="" />
-          <img src="images/icon/icon_instagram.png" alt="" class="ms-2" />
-          <img src="images/icon/icon_twitter.png" alt="" class="ms-2" />
-          <img src="images/icon/icon_mail.png" alt="" class="ms-2" />
-          <img src="images/icon/icon_twitch.png" alt="" class="ms-2" />
+          <img src="AssetsC1/icon_facebook.png" alt="" />
+          <img src="AssetsC1/icon_instagram.png" alt="" class="ms-2" />
+          <img src="AssetsC1/icon_twitter.png" alt="" class="ms-2" />
+          <img src="AssetsC1/icon_mail.png" alt="" class="ms-2" />
+          <img src="AssetsC1/icon_twitch.png" alt="" class="ms-2" />
         </div>
         <div class="col-lg-3 col-md-8 footer-copyright mb-5">
           <p>Copyright Binar 2022</p>
-          <img src="images/icon/logo.png" alt="" />
+          <img src="AssetsC1/logo.png" alt="" />
         </div>
       </div>
     </div>
@@ -245,7 +246,7 @@
         $(".datepicker").datepicker({
           uiLibrary: "bootstrap5",
           icons: {
-            rightIcon: '<img src="images/icon/icon-date.png" />',
+            rightIcon: '<img src="AssetsC2/iconCalendar.png" />',
           },
         });
       });
