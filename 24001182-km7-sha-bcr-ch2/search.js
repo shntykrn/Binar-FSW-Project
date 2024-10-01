@@ -1,70 +1,59 @@
-async function loadCars() {
-  const response = await fetch('./cars.json');
-  if (!response.ok) {
-    throw new Error('Failed to load cars.json');
-  }
-  const cars = await response.json();
-  return cars;
-}
+document.getElementById('search-btn').addEventListener('click', function(e) {
+  e.preventDefault();
 
-// Panggil fungsi ini di tempat yang sesuai
-loadCars().then(cars => {
-  // Lakukan operasi pada data cars di sini
-  console.log(cars); // cek apakah data mobil dimuat dengan benar
-  currentCars = cars;
-}).catch(error => {
-  console.error(error);
+  // Ambil nilai dari input pengguna
+  const driverType = document.getElementById('driver').value;
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const passengers = document.getElementById('passengers').value;
+
+  // Periksa apakah input sudah diisi dengan benar
+  if (!driverType || !date || !time) {
+      alert("Harap isi semua field yang wajib.");
+      return;
+  }
+
+  // Ambil data mobil dari cars.json
+  fetch('cars.json')
+      .then(response => response.json())
+      .then(cars => {
+          // Filter mobil berdasarkan input pengguna
+          const filteredCars = cars.filter(car => {
+              const isDriverTypeMatch = car.driverType === driverType;
+              const isPassengerMatch = passengers ? car.passengerCapacity >= passengers : true;
+              
+              return isDriverTypeMatch && isPassengerMatch;
+          });
+
+          // Tampilkan hasil pencarian
+          displayCars(filteredCars);
+      })
+      .catch(error => console.error('Error fetching cars data:', error));
 });
 
-import getListCars from './listCars.js';
-import filterCars from './filteredCars.js';
+// Fungsi untuk menampilkan hasil pencarian
+function displayCars(cars) {
+  const carsContainer = document.getElementById('cars-container');
+  carsContainer.innerHTML = ''; // Kosongkan kontainer hasil
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+  if (cars.length === 0) {
+      carsContainer.innerHTML = '<p>Tidak ada mobil yang sesuai dengan kriteria pencarian Anda.</p>';
+      return;
+  }
 
-function randomizeCars() {
-  // Deep clone the original cars data
-  const clonedCars = cars.map(car => ({ ...car }));
-
-  clonedCars.map((car) => {
-    const timeAt = new Date();
-    const randomDays = getRandomInt(0, 7);
-    const availableAt = new Date(timeAt.getTime() + randomDays * 24 * 60 * 60 * 1000);
-
-    const randomHour = getRandomInt(8, 19);
-    availableAt.setHours(randomHour, 0, 0, 0);
-
-    car.availableAt = availableAt.toISOString().split('T')[0]; // hanya tanggal
-  });
-
-  localStorage.setItem('randomCars', JSON.stringify(clonedCars));
-
-  return clonedCars; // Return the cloned array with modifications
-}
-
-// Get initial data (either from localStorage or by randomizing)
-let currentCars = JSON.parse(localStorage.getItem('randomCars'));
-
-if (!Array.isArray(currentCars) || currentCars.length === 0) {
-  currentCars = randomizeCars();
-}
-
-const randomizeButton = document.getElementById("randomize");
-const submitButton = document.getElementById("submit");
-
-if (randomizeButton) {
-  randomizeButton.addEventListener("click", () => {
-    // Get a fresh clone for getListCars to avoid side effects
-    const freshCars = randomizeCars();
-    getListCars(freshCars);
-  });
-}
-
-if (submitButton) {
-  submitButton.addEventListener("click", () => {
-    // Get a fresh clone for filterCars to avoid side effects
-    const freshCars = randomizeCars();
-    filterCars(freshCars);
+  cars.forEach(car => {
+      const carElement = `
+          <div class="card mb-3">
+              <img src="${car.image}" class="card-img-top" alt="${car.name}">
+              <div class="card-body">
+                  <h5 class="card-title">${car.name}</h5>
+                  <p class="card-text">Tipe Driver: ${car.driverType}</p>
+                  <p class="card-text">Kapasitas Penumpang: ${car.passengerCapacity}</p>
+                  <p class="card-text">Harga: Rp ${car.price.toLocaleString()}</p>
+                  <a href="#" class="btn btn-primary">Pilih Mobil</a>
+              </div>
+          </div>
+      `;
+      carsContainer.innerHTML += carElement;
   });
 }
