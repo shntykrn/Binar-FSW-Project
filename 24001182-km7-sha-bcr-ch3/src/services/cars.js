@@ -1,69 +1,58 @@
-const studentRepository = require("../repositories/cars");
-const { imageUpload } = require("../utils/image-kit");
-const { NotFoundError, InternalServerError } = require("../utils/request");
+const carsRepository = require("../repositories/cars");
+const {imageUpload} = require("../utils/image-kit");
+const {
+    NotFoundError, 
+    InternalServerError,
+} = require("../utils/request");
 
-exports.getStudents = (name, nickName, bachelor) => {
-    return studentRepository.getStudents(name, nickName, bachelor);
+exports.getCarsbyId = (id) => {
+    const cars = carsRepository.getCarsbyId(id);
+    if (!cars) {
+        throw new NotFoundError("Cars is Not Found!");
+    }
+    return cars;
 };
 
-exports.getStudentById = (id) => {
-    const student = studentRepository.getStudentById(id);
-    if (!student) {
-        throw new NotFoundError("Student is Not Found!");
-    }
-
-    return student;
+exports.createCars = async (data, file) => {
+    if(file?.image){
+        data.image = await imageUpload(file.image)
+    }       
+    return carsRepository.createCars(data);
 };
 
-exports.createStudent = async (data, file) => {
-    // Upload file to image kit
-    if (file?.profilePicture) {
-        data.profilePicture = await imageUpload(file.profilePicture);
+exports.updateCars = async (id, data, file) => {
+    const existingCars = carsRepository.getCarsbyId(id);
+    if (!existingCars) {
+        throw new NotFoundError("Cars is Not Found!");
     }
 
-    // Create the data
-    return studentRepository.createStudent(data);
-};
-
-exports.updateStudent = async (id, data, file) => {
-    // find student is exist or not (validate the data)
-    const existingStudent = studentRepository.getStudentById(id);
-    if (!existingStudent) {
-        throw new NotFoundError("Student is Not Found!");
-    }
-
-    // replicated existing data with new data
     data = {
-        ...existingStudent, // existing Student
+        ...existingCars,
         ...data,
     };
 
-    // Upload file to image kit
-    if (file?.profilePicture) {
-        data.profilePicture = await imageUpload(file.profilePicture);
+    if (file?.image) {
+        data.image = await imageUpload(file.image);
     }
 
-    // if exist, we will update the student data
-    const updatedStudent = studentRepository.updateStudent(id, data);
-    if (!updatedStudent) {
-        throw new InternalServerError(["Failed to update student!"]);
+    const updatedCars = carsRepository.updateCars(id, data);
+    if (!updatedCars) {
+        throw new InternalServerError(["Failed to update Cars!"]);
     }
 
-    return updatedStudent;
+    return updatedCars;
 };
 
-exports.deleteStudentById = (id) => {
-    // find student is exist or not (validate the data)
-    const existingStudent = studentRepository.getStudentById(id);
-    if (!existingStudent) {
-        throw new NotFoundError("Student is Not Found!");
+exports.deleteCarsbyId = (id) => {
+    const existingCars = carsRepository.getCarsbyId(id);
+    if (!existingCars) {
+        throw new NotFoundError("Cars is Not Found!");
     }
 
-    // if exist, we will delete the student data
-    const deletedStudent = studentRepository.deleteStudentById(id);
-    if (!deletedStudent) {
-        throw new InternalServerError(["Failed to delete student!"]);
+    const deletedCars = carsRepository.deleteCarsbyId(id);
+    if (!deletedCars) {
+        throw new InternalServerError(["Failed to delete Cars!"]);
     }
 
-    return deletedStudent;
+    return deletedCars;
 };
